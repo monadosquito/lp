@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 9000:9000
+  postgresql:
+    image: postgres:16.3-alpine3.20
+    container_name: postgresql
+    ports:
+      - 5000:5000
+    environment:
+      - POSTGRES_PORT=5000
+      - POSTGRES_USER=lp
+      - POSTGRES_PASSWORD=123
